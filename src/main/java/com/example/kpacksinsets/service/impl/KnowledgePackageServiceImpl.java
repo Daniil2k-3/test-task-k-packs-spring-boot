@@ -23,4 +23,14 @@ public class KnowledgePackageServiceImpl implements KnowledgePackageService {
     public List<KnowledgePackage> getAll() {
         return knowledgePackageRepository.findAll();
     }
+
+    @Override
+    public KnowledgePackage getById(Long id) {
+        return knowledgePackageRepository.getReferenceById(id);
+    }
+
+    @Override
+    public void delete(Long id) {
+        knowledgePackageRepository.deleteById(id);
+    }
 }

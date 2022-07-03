@@ -26,7 +26,7 @@ public class KnowledgePackageDtoMapper {
         return knowledgePackageResponseDto;
     }
 
-    public KnowledgePackage toModel(KnowledgePackageRequestDto requestDto){
+    public KnowledgePackage toModel(KnowledgePackageRequestDto requestDto) {
         KnowledgePackage knowledgePackage = new KnowledgePackage();
         knowledgePackage.setTitle(requestDto.getTitle());
         knowledgePackage.setDescription(requestDto.getDescription());
