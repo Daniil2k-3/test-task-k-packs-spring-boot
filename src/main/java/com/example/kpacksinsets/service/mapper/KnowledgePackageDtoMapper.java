@@ -30,11 +30,11 @@ public class KnowledgePackageDtoMapper {
         KnowledgePackage knowledgePackage = new KnowledgePackage();
         knowledgePackage.setTitle(requestDto.getTitle());
         knowledgePackage.setDescription(requestDto.getDescription());
-        knowledgePackage.setCreationTime(dateProvider());
+        knowledgePackage.setCreationTime(provideDate());
         return knowledgePackageService.add(knowledgePackage);
     }
 
-    private String dateProvider() {
+    private String provideDate() {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         return LocalDate.now().format(dateTimeFormatter);
     }
