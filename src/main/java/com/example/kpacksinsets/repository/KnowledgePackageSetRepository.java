@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface KnowledgePackageSetRepository
         extends JpaRepository<KnowledgePackageSet, Long> {
+    KnowledgePackageSet getByTitle(String title);
 }

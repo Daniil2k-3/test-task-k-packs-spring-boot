@@ -65,6 +65,11 @@ public class KnowledgePackageSetController {
                 .collect(Collectors.toList());
     }
 
+    @GetMapping("/sets/by-title")
+    public KnowledgePackageSetResponseDto getByTitle(@RequestParam String title) {
+        return knowledgePackageSetDtoMapper.toDto(knowledgePackageSetService.get(title));
+    }
+
     @DeleteMapping("sets/{id}")
     public void delete(@PathVariable Long id) {
         knowledgePackageSetService.delete(id);

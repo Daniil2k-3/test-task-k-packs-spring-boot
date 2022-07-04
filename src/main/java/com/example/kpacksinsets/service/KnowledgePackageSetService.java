@@ -9,6 +9,8 @@ public interface KnowledgePackageSetService {
 
     KnowledgePackageSet get(Long id);
 
+    KnowledgePackageSet get(String title);
+
     void delete(Long id);
 
     List<KnowledgePackageSet> getAll(Pageable pageable);

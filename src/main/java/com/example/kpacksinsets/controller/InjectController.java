@@ -43,7 +43,7 @@ public class InjectController {
         knowledgePackageService.add(knowledgePackage3);
 
         KnowledgePackageSet knowledgePackageSet = new KnowledgePackageSet();
-        knowledgePackageSet.setTitle("Set 1");
+        knowledgePackageSet.setTitle("Set");
         Set<KnowledgePackage> set = new HashSet<>();
         set.add(knowledgePackage1);
         set.add(knowledgePackage2);

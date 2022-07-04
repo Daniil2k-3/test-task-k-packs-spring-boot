@@ -27,6 +27,11 @@ public class KnowledgePackageSetServiceImpl implements KnowledgePackageSetServic
     }
 
     @Override
+    public KnowledgePackageSet get(String title) {
+        return knowledgePackageSetRepository.getByTitle(title);
+    }
+
+    @Override
     public void delete(Long id) {
         knowledgePackageSetRepository.deleteById(id);
     }
