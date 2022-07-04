@@ -4,6 +4,7 @@ import com.example.kpacksinsets.model.KnowledgePackageSet;
 import com.example.kpacksinsets.repository.KnowledgePackageSetRepository;
 import com.example.kpacksinsets.service.KnowledgePackageSetService;
 import java.util.List;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -31,7 +32,7 @@ public class KnowledgePackageSetServiceImpl implements KnowledgePackageSetServic
     }
 
     @Override
-    public List<KnowledgePackageSet> getAll() {
-        return knowledgePackageSetRepository.findAll();
+    public List<KnowledgePackageSet> getAll(Pageable pageable) {
+        return knowledgePackageSetRepository.findAll(pageable).toList();
     }
 }

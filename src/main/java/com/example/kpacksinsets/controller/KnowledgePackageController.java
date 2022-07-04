@@ -22,6 +22,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/kpacks")
 public class KnowledgePackageController {
+    private static final String PAGE = "0";
+    private static final String SIZE = "20";
+    private static final String SORT = "title";
     private final KnowledgePackageService knowledgePackageService;
     private final KnowledgePackageDtoMapper knowledgePackageDtoMapper;
 
@@ -39,11 +42,11 @@ public class KnowledgePackageController {
     }
 
     @GetMapping
-    public List<KnowledgePackageResponseDto> getAll(@RequestParam(defaultValue = "20") int count,
-                                                    @RequestParam(defaultValue = "0") int page,
-                                                    @RequestParam(defaultValue = "title")
+    public List<KnowledgePackageResponseDto> getAll(@RequestParam(defaultValue = SIZE) int size,
+                                                    @RequestParam(defaultValue = PAGE) int page,
+                                                    @RequestParam(defaultValue = SORT)
                                                         String sort) {
-        Pageable pageable = PageRequest.of(page, count, Sort.by(sort));
+        Pageable pageable = PageRequest.of(page, size, Sort.by(sort));
         return knowledgePackageService.getAll(pageable)
                 .stream()
                 .map(knowledgePackageDtoMapper::toDto)
